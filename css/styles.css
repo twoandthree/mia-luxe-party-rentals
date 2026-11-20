@@ -1,0 +1,308 @@
+:root {
+  --bg-page: #ffffff;
+  --bg-blush-soft: #ffeef3;
+  --bg-nav: #f7dde2;
+  --text-main: #2b2628;
+  --text-muted: #5a5054;
+  --accent-gold: #b88428;
+  --accent-gold-hover: #9e6f1e;
+  --accent-pink: #d94b8c;
+  --border-soft: #eedbe0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(0.9375rem, 0.25vw + 0.88rem, 1.0625rem);
+  line-height: 1.65;
+  color: var(--text-main);
+  background-color: var(--bg-page);
+}
+
+.site-header {
+  width: 100%;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+/* Mobile-first top header */
+.header-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.brand-logo {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 15px;
+}
+
+.service-note {
+  margin: 0 0 0.75rem;
+  font-size: clamp(0.875rem, 0.4vw + 0.78rem, 1.05rem);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+/* Location eyebrow / kicker */
+.service-kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-gold, #b88428);
+}
+
+/* Main editorial tagline */
+.service-headline {
+  margin: 0 0 0.55rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.1rem, 1vw + 0.9rem, 1.35rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text-main);
+  max-width: 34ch; /* Keeps line breaks balanced on desktop */
+}
+
+/* Supporting booking note */
+.service-note {
+  margin: 0 0 1.15rem;
+  font-size: clamp(0.875rem, 0.35vw + 0.8rem, 0.98rem);
+  font-style: italic;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.btn-book {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--accent-gold);
+  color: #ffffff;
+  font-size: clamp(0.9375rem, 0.25vw + 0.88rem, 1.0625rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-book:hover {
+  background-color: var(--accent-gold-hover);
+  transform: translateY(-1px);
+}
+
+/* Navigation bar */
+.main-nav {
+  background-color: var(--bg-nav);
+  border-top: 1px solid var(--border-soft);
+}
+
+.nav-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  list-style: none;
+  margin: 0;
+  padding: 0.85rem 0.5rem;
+  font-size: clamp(0.8125rem, 0.3vw + 0.75rem, 1rem);
+}
+
+.nav-list a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.nav-list a:hover {
+  color: var(--accent-pink);
+}
+
+/* Single-column main flow on mobile */
+.page-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3.5rem;
+}
+
+.content-block {
+  background-color: var(--bg-blush-soft);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem;
+  border-bottom: none; /* Neumorphism uses soft shadows instead of divider lines */
+  box-shadow:
+    8px 8px 18px rgba(186, 145, 156, 0.24),
+    -8px -8px 18px rgba(255, 255, 255, 0.9);
+}
+
+.content-block:last-child {
+  border-bottom: none;
+}
+
+.content-block h2 {
+  margin: 0 0 0.75rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  color: var(--text-main);
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.35rem);
+  line-height: 1.2;
+}
+
+/* Responsive rental cards (add class="rentals-list" to your <ul>) */
+.rentals-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.rental-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-blush-soft);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    5px 5px 12px rgba(186, 145, 156, 0.2),
+    -5px -5px 12px rgba(255, 255, 255, 0.85);
+}
+
+.rental-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-bottom: 3px solid var(--accent-gold);
+}
+
+.rental-card-body {
+  padding: 0.9rem 1rem;
+}
+
+.rental-card-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.site-footer {
+  background-color: var(--bg-nav);
+  border-top: 1px solid var(--border-soft);
+  padding: 2rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.25rem;
+}
+
+.footer-title {
+  margin: 0 0 0.25rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.footer-text,
+.footer-copy {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 1.75rem;
+}
+
+.footer-nav a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .header-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: right;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+  }
+
+  .brand-logo {
+    max-width: 420px;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0.9rem 2rem;
+  }
+  .site-footer {
+    padding: 2.25rem 2rem;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .footer-meta {
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(43, 38, 40, 0.1);
+    text-align: center;
+  }
+}
